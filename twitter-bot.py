@@ -84,8 +84,7 @@ class Bot():
                           access_token_key=credentials['access_token_key'],
                           access_token_secret=credentials['access_token_secret'])
         with sqlite3.connect(self.db) as db:
-
-            unpublished = db.execute('SELECT _rowid_, `title`, `link`, `image` FROM `entries` WHERE `published` = 0;')
+            unpublished = db.execute('SELECT _rowid_, `title`, `link`, `image` FROM `entries` WHERE `published` = 0 LIMIT 2;')
             for (id, title, link, image) in unpublished:
                 result = api.PostUpdate('{} {}'.format(title, link), media=image)
                 if result:
