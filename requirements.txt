@@ -10,4 +10,4 @@ python-twitter==3.5
 requests==2.21.0
 requests-oauthlib==1.1.0
 soupsieve==1.7
-urllib3==1.24.1
+urllib3>=1.24.2
